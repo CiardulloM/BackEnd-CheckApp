@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Note App</title>
+		<link rel="stylesheet" href="<%= '/styles/sign.css' %>" />
+	</head>
+	<body>
+		<% if(n == -1) { %>
+		<div class="incorrect">
+			<h1 class="text">password or username incorrect</h1>
+		</div>
+		<% } %>
+		<div class="conteiner">
+			<form class="form" action="/register" method="post">
+				<h1 class="title">Sign Up</h1>
+				<input class="input" type="email" name="email" placeholder="insert email" />
+				<input class="input" type="text" name="username" placeholder="insert username" />
+				<input class="input" type="password" name="password" placeholder="insert password" />
+				<button class="btn" type="submit">signup</button>
+				<a class="redirect" href="/login"> LogIn </a>
+			</form>
+		</div>
+	</body>
+</html>

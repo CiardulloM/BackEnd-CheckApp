@@ -1,0 +1,102 @@
+body {
+    overflow-y: hidden;
+    margin: 0;
+  --s: 50px;
+  --c: #191b22;
+  --_s: calc(2*var(--s)) calc(2*var(--s));
+  --_g: 35.36% 35.36% at;
+  --_c: #0000 66%,#20222a 68% 70%,#0000 72%;
+  background: 
+    radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s), 
+    radial-gradient(var(--_g) 0 75%,var(--_c)) var(--s) var(--s)/var(--_s), 
+    radial-gradient(var(--_g) 100% 25%,var(--_c)) 0 0/var(--_s), 
+    radial-gradient(var(--_g) 0 75%,var(--_c)) 0 0/var(--_s), 
+    repeating-conic-gradient(var(--c) 0 25%,#0000 0 50%) 0 0/var(--_s), 
+    radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c);
+  background-attachment: fixed;
+    
+}   
+.conteiner{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0px auto;
+}
+.form{
+    border: 4px solid white;
+    background-color: rgb(17, 17, 17, 255);
+    color: white;
+    border-radius: 20px;
+    height: 500px;
+    width: 500px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}   
+.btn{
+    display: block;
+    padding: 10px auto;
+    color: white;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    background-color: rgb(68, 94, 180);
+    border-radius: 10px; 
+    text-align: center;
+    justify-content: center; /* Centrar horizontalmente */ 
+    text-decoration: none; /* Eliminar subrayado del enlace */
+    transition-duration: 0.5s;
+}
+.btn:hover {
+    color: rgb(250, 250, 250);
+    background-color: rgb(53, 65, 134);
+}
+.input{
+    border: 1px solid  rgb(17, 17, 17, 255);
+    border-radius: 5px;
+    background-color: #3c3d3f;
+    color: white;
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    transition-duration: .6s;
+}
+.input:active{
+    background-color: #3c3d3f;
+}
+.input:hover{
+    border: 1px solid white;
+}
+.title{
+    font-size: 65px;
+    margin-bottom: 30px;
+    margin-top: 0px;
+}
+.incorrect{
+    display: flex;
+    margin: 0px auto;
+    background-color: red;
+    justify-content: center;
+}
+.text{
+    color: white;
+    text-align: center;
+}
+.redirect{
+    color: rgb(145, 145, 145);
+    align-self: flex-end;
+    margin-top: 30px;
+    margin-right: 30px;
+    font-size: 25px;
+    text-decoration: none;
+    transition-duration: .6s;
+}
+.redirect:hover{
+    color: rgb(53, 65, 134);
+}

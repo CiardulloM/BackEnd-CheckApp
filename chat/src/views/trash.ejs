@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+</head>
+<body>
+    <h1> deleted notes </h1>
+    <section>
+    <% for(let i = 0; i < notes.length; i++) { %>
+        <% if(notes[i].deleted) {%>
+        <article id="<%= i %>">
+            <h2> <%= notes[i].title %> </h2>
+            <h3> <%= notes[i].description %> </h3>
+            <button class="recover-button" id='<%= i %>' onclick="changeDeleteStatus('<%= notes[i].created_by %>', '<%= notes[i].id %>', 0, '<%= i %>')">Recover Note</button>
+            <button class="delete-button" id='<%= i %>' onclick="deleteNote('<%= notes[i].created_by %>', '<%= notes[i].id %>', '<%= i %>')">PERMANENT DELETE NOTE</button>
+        </article>
+        <% } %>
+    <% } %>
+    </section>
+    <script src="/scripts/notes.js"></script>
+</body>
+</html>

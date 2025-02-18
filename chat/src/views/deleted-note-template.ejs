@@ -1,0 +1,6 @@
+<article>
+    <h2 class="title"></h2>
+    <h3 class="description"></h3>
+    <button class="delete-button"  onclick="changeDeleteStatus('<%= notes[i].created_by %>', '<%= notes[i].id %>', 0, '<%= i %>')">Recover Note</button>
+    <button class="delete-button" onclick="deleteNote('<%= notes[i].created_by %>', '<%= notes[i].id %>', '<%= i %>')">PERMANENT DELETE NOTE</button>
+</article>

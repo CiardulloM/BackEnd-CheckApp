@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Notes App</title>
+		<link rel="stylesheet" href="<%= '/styles/home.css' %>" />
+	</head>
+	<body>
+		<div class="navbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<h1 class="title">Note App</h1>
+				</li>
+				<li class="nav-item">
+					<button class="nav-btn" onclick="CreateNote('<%= notes[0].created_by %>', 1)">
+						<i class="fa-solid fa-house"> </i>
+						<span class="nav-icon-text"> Home </span>
+					</button>
+				</li>
+				<li class="nav-item">
+					<button class="nav-btn" onclick="CreateNote('<%= notes[0].created_by %>', -1)">
+						<i class="fa-solid fa-trash"></i>
+						<span class="nav-icon-text"> Trash </span>
+					</button>
+				</li>
+				<li class="nav-item">
+					<button class="nav-btn" role="link" onclick="window.location.href = 'http://localhost:3000/logout'">
+						<i class="fa-solid fa-right-from-bracket"> </i>
+						<span class="nav-icon-text"> LogOut </span>
+					</button>
+				</li>
+			</ul>
+		</div>
+		<div class="main">
+			<div class="subtitle-container">
+				<h1 class="subtitle" id="subtitle">Notes</h1>
+				<button class="Btn btn-create-modal-open">
+					<div class="sign">+</div>
+					<div class="text">Create</div>
+				</button>
+				<dialog class="modal-open" id="modal-newNote">
+					<h2>Create New Note</h2>
+					<form method="dialog">
+						<form class="edit-form">
+							<input class="dialog-title-input" type="text" name="title" placeholder="insert note title" />
+							<input
+								class="dialog-description-input"
+								type="text"
+								name="description"
+								placeholder="insert note description"
+							/>
+
+							<button class="dialog-submit-btn" type="submit" onclick="CreateNewNote('<%= user %>')">Save</button>
+						</form>
+					</form>
+				</dialog>
+			</div>
+			<div class="notes">
+				<section id="conteiner">
+					<% for(let i = 0; i < notes.length; i++) { %> <% if(!notes[i].deleted) { %>
+					<article class="note" id="<%= i %>">
+						<div class="title-container" id="title-<%= i %>">
+							<span class="note-title"> <%= notes[i].title %> </span>
+						</div>
+						<!-- <h2 class="note-title"> <%= notes[i].title %> </h2> -->
+						<h3 class="note-description" id="description-<%= i %>"><%= notes[i].description %></h3>
+						<button
+							class="delete-button"
+							id="<%= i %>"
+							onclick="changeDeleteStatus('<%= notes[i].created_by %>', '<%= notes[i].id %>', 1, '<%= i %>')"
+						>
+							<i class="fa-solid fa-trash"></i>
+						</button>
+						<button class="btn-modal-open" id="<%= i %>">
+							<i class="fa-solid fa-pen"></i>
+						</button>
+						<dialog class="modal-open" id="modal-<%= i %>">
+							<h2>Edit: <%= notes[i].title %></h2>
+							<form method="dialog">
+								<form class="edit-form">
+									<input class="dialog-title-input" type="text" name="title" placeholder="insert new title" />
+									<input
+										class="dialog-description-input"
+										type="text"
+										name="description"
+										placeholder="insert new description"
+									/>
+									<button
+										class="dialog-submit-btn"
+										type="submit"
+										onclick="updateNoteContent('<%= notes[i].created_by %>', '<%= notes[i].id %>', '<%= i %>')"
+									>
+										Save
+									</button>
+								</form>
+							</form>
+						</dialog>
+					</article>
+					<% } %> <% } %>
+				</section>
+			</div>
+		</div>
+
+		<script src="/scripts/notes.js"></script>
+		<script src="/scripts/home.js"></script>
+		<script src="https://kit.fontawesome.com/06a7e8fabf.js" crossorigin="anonymous"></script>
+	</body>
+</html>
