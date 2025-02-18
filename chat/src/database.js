@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 //import bscrypt from 'bscrypt'
 
-const pool = mysql
+/*const pool = mysql
 	.createPool({
 		host: 'localhost',
 		user: 'root',
@@ -11,7 +11,15 @@ const pool = mysql
 		database: 'chat',
 	})
 	.promise();
-
+	*/
+const pool = mysql
+	.createPool({
+		host: 'b5se2viokb9jh2dysm34-mysql.services.clever-cloud.com',
+		user: 'usdgtjk5ikbpb5pt',
+		password: '1IxxKXZKo1p1A7LuG6Gy',
+		database: 'b5se2viokb9jh2dysm34',
+	})
+	.promise();
 // USERS TABLE FUNCTIONS
 
 export async function getIdByEmail(email) {
