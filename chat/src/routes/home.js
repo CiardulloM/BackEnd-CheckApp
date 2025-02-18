@@ -12,4 +12,8 @@ router.get('/main', authRequired, async (req, res) => {
 	return res.json({ user: user });
 });
 
+router.get('/try', async (req, res) => {
+	const user = { id: 2 };
+	return res.json({ user: user });
+});
 export default router;
