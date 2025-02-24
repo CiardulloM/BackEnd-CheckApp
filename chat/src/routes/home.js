@@ -12,8 +12,9 @@ router.get('/main', authRequired, async (req, res) => {
 	return res.json({ user: user });
 });
 
-router.get('/try', async (req, res) => {
+router.post('/try', async (req, res) => {
 	const user = { id: 2 };
+	console.log(req.body);
 	return res.json({ user: user });
 });
 export default router;

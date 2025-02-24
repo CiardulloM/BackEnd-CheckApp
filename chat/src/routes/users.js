@@ -13,7 +13,7 @@ import { encrypt, compare } from '../helpers/encrypt.js';
 import { createAccessToken } from '../helpers/jwt.js';
 import { authRequired } from '../middlewares/validateToken.js';
 import { generateConfirmationCode } from '../helpers/crypto.js';
-import resend from '../helpers/resend.js';
+import SendEmail from '../helpers/nodemailer.js';
 const router = express.Router();
 
 router.post('/register', async (req, res) => {
@@ -127,7 +127,7 @@ router.post('/getverificationcode', async (req, res) => {
 	if (user_id != -1 || accion == -1) {
 		const codeInsertId = await postVerificationCode(encriptedCode);
 		if (codeInsertId) {
-			await resend.SendEmail(email, confirmationCode);
+			await SendEmail(email, confirmationCode);
 			return res.status(200).json({
 				message: 'code sended successfully',
 				codeInsertId: `${codeInsertId}`,

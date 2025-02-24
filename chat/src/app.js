@@ -37,10 +37,11 @@ app.use(
 	})
 );
 
+const allowedOrigins = ['https://checkapp-frontend-react.onrender.com', 'http://localhost:3001'];
 //middlewares
 app.use(
 	cors({
-		origin: 'http://localhost:3001',
+		origin: allowedOrigins,
 		credentials: true,
 	})
 );
